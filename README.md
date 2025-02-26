@@ -1,27 +1,49 @@
-# 🚀 Facebook Marketplace AutoCheckbox Clicker  
+# 🚀 Facebook Marketplace AutoClicker  
 
-💀 **The Dirtiest Autoclicker for Marketplace Sharing** 💀  
+⚠️ **DIRTY TOOL FOR FACEBOOK POWER USERS!** ⚠️  
+Tired of clicking like a peasant? **Automate Facebook Marketplace sharing** with this powerful **AutoClicker**!  
+**No more manual clicking – just run and let the chaos unfold!** 😈  
 
-⚡ **Automate your sharing like a boss.** No more endless clicking—let this script do the dirty work for you.  
+## 🎥 Demo  
+![AutoClicker in Action](https://i.imgur.com/mH1eAG7.gif)  
 
 ## 🔥 Features  
-- ✅ Auto-clicks **all unchecked** checkboxes in Facebook Marketplace sharing  
-- 🔄 **Smooth auto-scroll** to ensure full coverage  
-- 🚀 **Blazing fast execution** (optimized & lightweight)  
-- 🔥 **Zero dependencies**—just paste & run  
+✅ **Auto-selects all checkboxes** (only unticked ones)  
+✅ **Automatically scrolls down** until all options are selected  
+✅ **Simulates real user clicks** to bypass bot detection  
+✅ **Ultra-fast execution** – done in seconds!  
+✅ **Console log output: "DONE ✅"** when finished  
 
-## 🎬 Demo  
-![Demo GIF](demo.gif)  
+## 🛠️ Installation  
+1. **Open Facebook Marketplace** and go to the **"Share to Groups/Places"** dialog.  
+2. **Open your browser console** (Press `F12` → Click on **Console**).  
+3. **Copy & paste** the script below and hit **Enter**.  
+4. **Enjoy the magic! 🎩✨**  
 
-## 🛠️ Installation & Usage  
-1. **Open Facebook Marketplace** and go to the sharing window  
-2. **Open DevTools** (`F12` or `Ctrl + Shift + I`)  
-3. **Go to Console** and paste the script  
-4. **Hit Enter** and watch the magic happen ✨  
+## 🚀 Script  
+```js
+setTimeout(() => {
+    function scrollAndClick() {
+        let checkboxes = document.querySelectorAll('div[role="checkbox"]');
+        let unchecked = Array.from(checkboxes).filter(c => c.getAttribute('aria-checked') !== 'true');
 
-## ⚠️ Disclaimer  
-⚠️ **Use at your own risk.** Facebook might not like this. Don't blame me if you end up in Facebook jail. 🚔  
+        if (unchecked.length === 0) {
+            console.log('%c DONE ✅', 'color: lime; font-size: 16px; font-weight: bold;');
+            return;
+        }
 
----
+        unchecked.forEach(checkbox => {
+            let rect = checkbox.getBoundingClientRect();
+            let eventOptions = { bubbles: true, cancelable: true, view: window, clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2 };
 
-🔥 **Get in. Get it done. Get out.** 🔥  
+            checkbox.dispatchEvent(new MouseEvent('mousemove', eventOptions));
+            checkbox.dispatchEvent(new MouseEvent('click', eventOptions));
+        });
+
+        unchecked[unchecked.length - 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        setTimeout(scrollAndClick, 500);
+    }
+
+    scrollAndClick();
+}, 500);
