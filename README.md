@@ -5,7 +5,7 @@ Tired of clicking like a peasant? **Automate Facebook Marketplace sharing** with
 **No more manual clicking – just run and let the chaos unfold!** 😈  
 
 ## 🎥 Demo  
-<img src="https://i.imgur.com/mH1eAG7.gif" width="600" />
+![Demo](https://i.imgur.com/mH1eAG7.gif)
 
 ## 🔥 Features  
 ✅ **Auto-selects all checkboxes** (only unticked ones)  
