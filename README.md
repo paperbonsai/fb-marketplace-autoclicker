@@ -23,28 +23,29 @@ Tired of clicking like a peasant? **Automate Facebook Marketplace sharing** with
 
 ## 🚀 Script  
 ```js
-setTimeout(() => {
-    function scrollAndClick() {
-        let checkboxes = document.querySelectorAll('div[role="checkbox"]');
-        let unchecked = Array.from(checkboxes).filter(c => c.getAttribute('aria-checked') !== 'true');
+// Facebook Marketplace Auto-Checkbox Clicker
+(function() {
+    let checkboxes = document.querySelectorAll('div[role="checkbox"]');
+    let index = 0;
 
-        if (unchecked.length === 0) {
-            console.log('%c DONE ✅', 'color: lime; font-size: 16px; font-weight: bold;');
+    function clickNext() {
+        if (index >= checkboxes.length) {
+            console.log("done");
             return;
         }
 
-        unchecked.forEach(checkbox => {
-            let rect = checkbox.getBoundingClientRect();
-            let eventOptions = { bubbles: true, cancelable: true, view: window, clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2 };
+        let checkbox = checkboxes[index];
+        let isChecked = checkbox.getAttribute('aria-checked') === 'true';
 
-            checkbox.dispatchEvent(new MouseEvent('mousemove', eventOptions));
-            checkbox.dispatchEvent(new MouseEvent('click', eventOptions));
-        });
+        if (!isChecked) {
+            checkbox.click();
+        }
 
-        unchecked[unchecked.length - 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        index++;
+        checkbox.scrollIntoView({ behavior: "smooth", block: "center" });
 
-        setTimeout(scrollAndClick, 500);
+        setTimeout(clickNext, 200); // Adjust timing for smooth execution
     }
 
-    scrollAndClick();
-}, 500);
+    clickNext();
+})();
