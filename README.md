@@ -5,7 +5,7 @@ Tired of clicking like a peasant? **Automate Facebook Marketplace sharing** with
 **No more manual clicking – just run and let the chaos unfold!** 😈  
 
 ## 🎥 Demo  
-![Demo]([https://i.imgur.com/mH1eAG7.gif](https://github.com/paperbonsai/fb-marketplace-autoclicker/blob/main/demo.gif))
+![Demo](https://i.imgur.com/mH1eAG7.gif)
 
 ## 🔥 Features  
 ✅ **Auto-selects all checkboxes** (only unticked ones)  
