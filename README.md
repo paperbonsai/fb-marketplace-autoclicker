@@ -30,7 +30,7 @@ Tired of clicking like a peasant? **Automate Facebook Marketplace sharing** with
 
     function clickNext() {
         if (index >= checkboxes.length) {
-            console.log("done");
+            console.log("DONE ✅");
             return;
         }
 
